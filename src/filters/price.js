@@ -14,12 +14,12 @@ const setupPrice = (store) => {
     priceInput.min = 0
     priceValue.textContent = `Value : $${maxPrice}`;
 
-    priceInput.addEventListener('input', function(){
+    priceInput.addEventListener('input', function () {
         const value = parseInt(priceInput.value);
         priceValue.textContent = `Value : $${value}`;
         let newStore = store.filter((product) => product.price / 100 <= value);
-        display(newStore, getElement('.products-container'))
-        if(newStore.length < 1){
+        display(newStore, getElement('.products-container'), true)
+        if (newStore.length < 1) {
             const products = getElement('.products-container');
             products.innerHTML = `<h3 class="filter-error">No item matched your price</h3>`
         }

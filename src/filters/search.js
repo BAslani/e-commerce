@@ -13,13 +13,13 @@ const setupSearch = (store) => {
                     return product
                 }
             });
-            display(newStore, getElement('.products-container'))
+            display(newStore, getElement('.products-container'), true)
             if(newStore.length < 1){
                 const products = getElement('.products-container');
                 products.innerHTML = `<h3 class="filter-error">Sorry no product matched your search</h3>`
             }
         } else {
-            display(store, getElement('.products-container'))
+            display(store, getElement('.products-container'), true)
         }
     })
 };
